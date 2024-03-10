@@ -23,22 +23,23 @@ header {
 }
 
 .container {
-  margin: 20px auto;
-  max-width: 1200px;
-    margin: 0 auto;
+  margin: 10px auto;
+  max-width: 1200px; 
 }
 
 main {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  background-color: #ffffff;
 }
 
 .image-container {
   position: relative;
   overflow: hidden;
-  width: calc(33.33% - 20px); /* Adjust the width based on the desired spacing */
+  width: 30%; /* Set the width to 30% to limit to 3 images per row */
   margin-bottom: 20px; /* Add margin between rows */
+  background-color: aliceblue;
 }
 
 .image-overlay {
@@ -68,8 +69,9 @@ main {
 
 /*Sets image dimensions*/
 img {
-  max-width: 145.31px;
-  height: 145.31px;
+  max-width: 100%;
+  height: auto;
+  display: block; /* Ensure images don't have extra space at the bottom */
 }
 
 .footer {
