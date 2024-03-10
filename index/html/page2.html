@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <title>Project 2</title>
+</head>
+<body>
+    <header>C++ Constructor Program</header>
+
+    <div>
+        <h2>This program was an Assignment I did to practice working with Constructors & assignment operators that simply just initializes Student Data.</h2>
+    </div>
+    
+    <div>
+        <pre>
+            /*
+            ** Program	: CSCV 335 Assignment 2
+            **
+            ** Purpose	: To declare the properties and methods of the implementationfile
+            **
+            ** Levi Reyes
+            **/
+
+            #ifndef _STUDENT
+            #define _STUDENT
+
+            #include <string>
+            #include <stdlib.h>
+            #include <stdio.h>
+            #include <iostream>
+            #include <sstream>
+
+            using namespace std;
+
+            class Student
+            {
+            private:
+                int studentID = 0;
+                string lastName = "";
+                string firstName = "";
+                double gpa = 0.0;
+
+            public:
+                Student();
+                Student(int, string, string, double);       //Constructor with parameters
+
+                Student(const Student&);    //Copy constructor
+
+                void setStudentID(int);     //Setter Method for Student ID
+
+                void setLastName(string);      //Setter Method for Last Name
+
+                void setFirstName(string);     //Setter Method for First Name
+
+                void setGPA(double);        //Setter Method for GPA
+
+
+                int getStudentID() const;     //Getter Method for Student ID
+
+                string getLastName() const;       //Getter for Last Name
+
+                string getFirstName() const;      //Getter for First Name
+
+                double getGPA() const;        //Getter Method for GPA
+
+                Student& operator=(const Student&);         // Copy operator =
+
+                virtual string toString();      //ToString Method
+            };
+
+            #endif
+
+            Student::Student()
+            {
+                setStudentID(0);
+                setLastName("");
+                setFirstName("");
+                setGPA(0.0);
+            }
+
+            //Constructor that accepts parameters for all the atributes
+            Student::Student(int studentID, string lastName, string firstName, double gpa)
+            {
+                cout << "\n*** In Student constructor ***\n";
+
+                setStudentID(studentID);
+                setLastName( lastName );
+                setFirstName( firstName );
+                setGPA( gpa );
+            }
+
+            //Copy Constructor 
+            Student::Student(const Student& rightHandObj)
+            {
+                cout << "\nIn copy constructor Student(Student&) " << endl; 
+
+                this->setStudentID(rightHandObj.getStudentID());
+                this->setLastName(rightHandObj.getLastName());
+                this->setFirstName(rightHandObj.getFirstName());
+                this->setGPA(rightHandObj.getGPA());
+            }
+
+            void Student::setStudentID(int studentID)
+            {
+                this->studentID = studentID;
+            }
+
+            void Student::setLastName(string lastName)
+            {
+                this->lastName = lastName;
+            }
+
+            void Student::setFirstName(string firstName)
+            {
+                this->firstName = firstName;
+            }
+
+            void Student::setGPA(double gpa)
+            {
+                this->gpa = gpa;
+            }
+
+            int Student::getStudentID() const
+            {
+                return studentID;
+            }
+
+            string Student::getLastName() const
+            {
+                return lastName;
+            }
+            string Student::getFirstName() const
+            {
+                return firstName;
+            }
+
+            double Student::getGPA() const
+            {
+                return gpa;
+            }
+
+            // Overloaded assignment operator =
+            Student& Student::operator=(const Student& rightHandObj)
+            {
+                // "this" the object on the left side of = in an expression like StudentOne = StudentTwo;
+                this->setStudentID(rightHandObj.getStudentID());
+                this->setLastName(rightHandObj.getLastName());
+                this->setFirstName(rightHandObj.getFirstName());
+                this->setGPA(rightHandObj.getGPA());
+
+                return *this;
+            }
+
+            string Student::toString()
+            {
+                stringstream strm ;
+
+                strm << "Student Data: "
+                    << "\n\tStudent ID    : " << studentID 
+                    << "\n\tLast name     : " << lastName 
+                    << "\n\tFirst name    : " << firstName 
+                    << "\n\tGPA           : " << gpa  
+                    << "\n";
+
+                return strm.str();
+            }
+
+            int main()
+            {
+                cout << "\nAbout to instantiate Student One:(1, \"Wayne\", \"Bruce\", 2.45)\n";       //Display the information about to be added to Student One
+                Student StudentOne(1, "Wayne", "Bruce", 2.45);      //Uses student constructor with parameters
+                cout << StudentOne.toString() << '\n';      //Prints the information using toString
+
+                cout << "\nAbout to instantiate Student Two:( 2, \"Sells\", \"Sue\", 1.40)\n";
+                Student StudentTwo( 2, "Sells", "Sue", 1.40);
+                cout << StudentTwo.toString() << "\n" ;
+
+                //Using get methods to retrieve the name of student Three
+                cout << "\nStudentTwo, " << StudentTwo.getFirstName() << " " << StudentTwo.getLastName() << " has increased her GPA from 1.40 to 2.01.\n\n";
+                StudentTwo.setGPA(2.01);        //Using the set method to change GPA of Student Three
+                cout << StudentTwo.toString() << "\n";    //Prints new Info
+
+                Student StudentThree(StudentOne);      //Creating Student Three using copy constructor & student One
+                cout << StudentThree.toString() << "\n" ;        //Displaying what information was in copied by constructor
+
+                StudentThree.setFirstName("Tom");        //Using set methods for Student Three info
+                StudentThree.setLastName("Philips");
+                StudentThree.setStudentID(3);
+                StudentThree.setGPA(3.90);
+
+                cout << "New Student Three Information after using set methods: \n";
+                cout << StudentThree.toString() << "\n";
+
+                Student StudentFour;        //Creates Student Four as an object
+                StudentFour = StudentTwo;       //Uses overloaded '=' operator to assign values to objects attributes
+                cout << "The Values StudentFour got from overloaded '=' operator: \n";
+                cout << StudentFour.toString() << "\n";
+                
+            }
+        </pre>
+    </div>
+
+    <div>
+        <footer>
+            <a href="../index.html">Back to Main Page!</a>
+        </footer>
+        
+    </div>
+    
+
+
+</body>
+</html>

@@ -1,48 +1,123 @@
-
-header {
-  background-color: #636253;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
+/* Reset some default styles */
+body, h1, h2, h3, p, ul, li {
+  margin: 0;
+  padding: 0;
 }
 
-footer {
-  background-color: #636253;
-  color: #fff;
-  border: 5px;
-  border-style: solid;
-  border-color: rgb(111, 0, 255);
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+  margin: 0%;
+}
+
+header {
+  background-color: #343a40;
+  color: #ffffff;
   text-align: center;
-  padding: 20px;
-  margin-left: 1px;
-  bottom: 0;
-  width: 100%;
+  padding: 20px 0;
+}
+
+.text-center {
+  text-align: center;
+  margin: 20px 0;
 }
 
 .container {
-  max-width: 1100px;
-  margin: 0 auto;
+  margin: 20px auto;
 }
 
 main {
-  padding: 1em;
-  overflow: hidden;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 95%;
-  
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .image-container {
-  width: 30%;
-  float: left;
-  margin: 1%;
-  box-sizing: border-box;
+  position: relative;
   overflow: hidden;
 }
-.image-container img {
-  width: 139px;
-  height: 139px;
-  object-fit: fill;
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.image-container:hover .image-overlay {
+  opacity: 1;
+}
+
+.image-overlay p {
+  text-align: center;
+  font-size: 18px;
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.footer {
+  background-color: #4c759e;
+  color: #ffffff;
+  padding: 20px 0;
+}
+
+#icons a {
+  color: #ffffff;
+  margin: 0 10px;
+  font-size: 20px;
+}
+
+#icons a:hover {
+  color: #2d3236;
+}
+
+.navbar {
+  background-color: #4c759e;
+  color: #ffffff;
+  padding: 15px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  font-size: 1.5em;
+  color: #ffffff;
+}
+
+.middlelogo {
+  font-size: 1.7em;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin-right: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Add hover effect to navigation links */
+.nav-links a:hover {
+  color: #2d3236;
 }
