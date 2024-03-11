@@ -4,185 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles.css">
-    <title>Project 1</title>
+    <title>Project 4</title>
 </head>
 <body>
-    <header>Working with linked Lists in C.</header>
+    <header>C Programming</header>
 
     <div>
-        <h2>This program is a simple program that used command line arguments to read the inputted text file & put the words in a sorted linked list. The list is alphabetically sorted.</h2>
+        <h2>This Section is for the C Programming Language programs</h2>
     </div>
+
+    <div>
+        <p>
+            C programming is a procedural programming language. C is known for its low-level features, allowing direct manipulation of memory 
+            addresses, making it suitable for systems programming, embedded systems, and development of operating systems. In contrast, 
+            object-oriented programming (OOP) languages, such as Java, follow a different paradigm. OOP is based on the concept of objects, which 
+            encapsulate data and behavior, promoting modularity, reusability, and abstraction. C is closer to the hardware, offering greater control 
+            but requiring explicit memory management, while Java, an OOP language, abstracts away low-level details, prioritizing ease of development,
+            portability, and code organization. Both languages have their strengths and are used in various contexts, with C excelling in 
+            systems-level programming and Java being widely employed for enterprise applications, web development, and Android app development.
+        </p>
+    </div>
+
+    <div>
+        <p>
+            I learned C programming my first semester here at University of Arizona, & while it was different than Java my only other programming
+            language I knew at the time, it was a fun struggle learning. I had to learn to declare my memory & was introduced to Linked-Lists
+            which was a difficult concept for me to learn.
+        </p>
+    </div>
+
+    <div>
+        <ul>
+            <li>
+                Week 6: I was able to work through making an Adventure Game with features that allow you to move into different rooms in a house.
+                There was a map so you could only walk into rooms connected to the current location, & items that you could pick up in different rooms.
+                It invloved lots of checks & I used loops, & switch case statements to handle the different options.
+            </li>
+        </ul>
+    </div>
+
     
     <div>
-        <pre>
-            #include <stdio.h>
-            #include <string.h>
-            #include <stdlib.h>
-            #include <stdbool.h>
-            
-            #define MAX_WORD 30
-            ///////////////////////////////////////////////////////
-            //               typedefs and structures
-            //////////////////////////////////////////////////////
-            typedef struct _linkedListNode
-            {
-                char word[MAX_WORD];
-                    struct _node *pNext;
-            } LinkedListNode;
-            
-            typedef struct _linkedListNode * pNode;
-            
-            typedef struct LinkedList List;
-            typedef struct LinkedList* pList;
-            typedef struct LinkedList DataNode;
-            typedef struct LinkedList* pDataNode;
-            
-            struct LinkedList{
-                pDataNode pHead;
-                pDataNode pTail;
-                pDataNode pNext;
-                void* data;
-                int count;
-            };
-            ///////////////////////////////////////////////////////
-            //                FunctionPrototypes
-            ///////////////////////////////////////////////////////
-            pList initList(pList list);
-            pList addNode(pDataNode node, pList list);
-            pList freeNode(pList list);
-            pList sortList(pList mylist);
-            
-            
-            int main(int argc, char *argv[])
-            {
-                if (argc < 2)           //Statement for when user less than 2 arguments
-                {
-                    printf("Usage: \n");
-                    printf("   Exercise9_2 <filename>\n");
-                    exit(1);
-                }
-            
-                List wordList;
-                pList pWordList = &wordList;        
-                memcpy(pWordList, initList(pWordList), sizeof(List));
-            
-                FILE* pFile;
-                if( (pFile = fopen(argv[1],"r")) != NULL)           //Check fopen result
-                { 
-                    int ch = 1;
-                    char* str = calloc(MAX_WORD, sizeof(char));
-            
-                        while (ch != EOF)               //while loop to go through entire file
-                        {
-                        int i = 0;
-                            while((ch = fgetc(pFile)) != '\n' && ch != EOF)     //Excludes newlines & EOF from ch
-                            {
-                                if((ch >= 'a' && ch <='z') || (ch >= 'A' && ch <='Z') || ch == '-' || ch == ' ')        //statement to get all characters including ' ' & '-'
-                                {
-                                    str[i] = (char) ch;     //sets ch to str[i]
-                                    i++;
-                                }
-                            }
-            
-                            if (i > 0)
-                            {
-                                pNode node = (pNode)malloc(sizeof(LinkedListNode));         //creates new node
-                                str[i] = '\0';                      //Sets str[i] to NULL
-                                strcpy(node->word, str);           //strcpy str into the  created node
-            
-                                pDataNode dataNode = (pDataNode)malloc(sizeof(DataNode));       //creates dataNode
-                                dataNode->data = node;          //sets word in data to node
-                                memcpy(pWordList, addNode(dataNode, pWordList), sizeof(List));      //Adds nodes to list for each item read from file
-                            }
-                        }
-            
-                    free(str);
-            
-                    memcpy(pWordList, sortList(pWordList), sizeof(List));       //Copies data from sorted list into pWordList
-            
-                    while (pWordList->count != 0)
-                    {
-                        pNode node = pWordList->pHead->data;
-                        printf("%s\n", node->word);         //Prints the word from first node
-                        memcpy(pWordList, freeNode(pWordList), sizeof(List));         //Removes the first node so second node is now first
-                        free(node);             //frees node which was already printed
-                    }
-                }   
-                else
-                {
-                    printf("ERROR: unable to open %s\n", argv[1]);         //prints error message
-                }
-            
-                return 0;
-            }
-            
-            pList sortList(pList mylist)            //Function to Sort List
-            {
-                char* temp = calloc(MAX_WORD, sizeof(char));
-                int entriesInList = mylist->count;              //entriesInList = count in list
-                pDataNode current = mylist->pHead;          //sets current to the head of the list
-            
-                for (int i = 0; i < entriesInList; i++)
-                {
-                    for (int j = 0; j < entriesInList-1-i; j++)
-                    {
-                        pNode currentNode = current->data;      //sets currentNode = word currently in pHead of list
-                        pNode nextNode = current->pNext->data;          
-            
-                            if (strcmp(currentNode->word, nextNode->word) > 0)      //Compares currentNode to nextNode to see which goes first in Ascending Order
-                            {
-                                strcpy(temp, currentNode->word);            //copies currentNode's word into temp variable to hold its value
-                                strcpy(currentNode->word, nextNode->word);      //nextNode word replaces currentNode word
-                                strcpy(nextNode->word, temp);               //original currentNode word gets set to nextNode word
-                            }
-                        
-                        current = current->pNext;
-                    }
-                    current = mylist->pHead;
-                }
-            
-                free(temp);         //free temp variable
-                return mylist;          //prints entire linked list at end
-            }
-                    
-            pList initList(pList list)      //Function to Initializes the list
-            {
-                list = calloc(1, sizeof(List));
-                return list;
-            }
-            
-            pList addNode(pDataNode node, pList list)       //Functions adds nodes to list
-            {
-                if (list->pTail == NULL)    
-                {
-                    list->pTail = node;
-                    list->pHead = node;
-                }
-                else
-                {
-                    list->pTail->pNext = node;
-                    list->pTail = node;
-                }
-            
-                list->count++;          //Number of entries in list increases
-            
-                return list;        //returns new list with added node
-            }
-            
-            pList freeNode(pList list)            //Function to remove nodes from list
-            {
-                pDataNode oldNode;
-            
-                oldNode = list->pHead;              //Will point at head of the list
-                list->pHead = list->pHead->pNext;       //Moves pHead pointer to next node in list
-                
-                free(oldNode);      //free previous head of list
-            
-                list->count--;      //number of entries in the list decreases
-            
-                return list;        //returns new list without previous pHead
-            }
-        </pre>
+        <a href="https://github.com/LeviR-UofA/C-Files/tree/main" target="_blank">Click here for GitHub C Files Repo</a>
     </div>
 
     <div class="footer text-center mt-3">
