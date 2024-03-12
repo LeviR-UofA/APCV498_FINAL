@@ -64,14 +64,13 @@ main {
 .image-overlay p {
   text-align: center;
   font-size: 18px;
-  margin: 0;
 }
 
 /*Sets image dimensions*/
 img {
-  max-width: 100%;
-  height: auto;
-  display: block; /* Ensure images don't have extra space at the bottom */
+  width:  300px;
+  height: 250px;
+  object-fit: fill;
 }
 
 .footer {
