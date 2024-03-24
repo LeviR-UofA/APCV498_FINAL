@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Levi Reyes - Portfolio</title>
 </head>
-<body>
+<body class="page">
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="container">
@@ -18,20 +18,34 @@
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#certificates">Certificates</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!--This will be the heading-->
-    <div class="text-center">
-        <h3>APCV 498</h3>
-        <p>Welcome to my website!</p>
-        <p>Below are some projects that I have worked on during my Academic Career & free time.</p>
-    </div>
+    <!--Container for the whole Mainpage-->
+    <div class="container-xl">
+        <!--This will be the heading-->
+        <div class="text-center">
+            <h3>Home</h3>
+        </div>
 
-    <!--This div will be for the assignments-->
-    <div class="container">
+        <div class="text-body">
+            <div>
+                <h3>About Me:</h3>
+                <ul>
+                    This section I...
+                    <li>I did...</li>
+                    <li>Second</li>
+                </ul>
+            </div>
+
+            <h3>APCV 498</h3>
+            <p>Welcome to my website!</p>
+            <p>Below are some projects that I have worked on during my Academic Career & free time.</p>
+        </div>
+
         <!-- Assignment #1 -->
         <main>
             <!--Start of First Row of Pictures-->
@@ -81,11 +95,13 @@
         </main>
 
         <div>
-            <h4>Web Development Projects</h4>
+            <div class="text-center">
+                <h4>Web Development Projects</h4>
+            </div>
             <p>Here are some projects that I did using HTML, CSS, & JavaScript. This section has working projects I have deployed online, just click the image of the project your interested in seeing more.</p>
         
             <main>
-            <!--First Row of Pictures-->
+            <!--First Row of Web Development Projects-->
                 <!--Picture for Lemon Recipe Website-->
                 <div class="image-container">
                     <a href="https://lemon-pie-recipe.vercel.app/" target="_blank">
@@ -94,6 +110,7 @@
                             <p>Lemon Recipe Homepage</p>
                         </div>
                     </a>
+                    <p>This project was to create a webpage for Grandma's Lemon Meringue Pie Recipe, It includes the whole recipe & a MainPage.</p>
                 </div>
                 <!--Picture for TMNT Rancid Tomatoes Page-->
                 <div class="image-container">
@@ -103,6 +120,7 @@
                             <p>TMNT Rancid Tomatoes Page</p>
                         </div>
                     </a>
+                    <p>This project was to create a Rancid Tomatoes Page that shows of all the Movie details about the TMNT movie. Styling was done using CSS</p>
                 </div>
                 <!--Picture for Vigenere Cipher-->
                 <div class="image-container">
@@ -112,8 +130,9 @@
                             <p>Vigenere Cipher</p>
                         </div>
                     </a>
+                    <p>This project was creating a Vigenere Cipher that allows the User to encrypt/decrypt their message. The tests on the right side of page are to make sure the Cipher works.</p>
                 </div>
-            <!--Second Row of Pictures-->
+            <!--Second Row of Web Development Projects-->
                 <!--Picture for Simple Calculator App-->
                 <div class="image-container">
                     <a href="https://simple-calculator-chi-ivory.vercel.app/" target="_blank">
@@ -122,9 +141,62 @@
                             <p>Simple Calculator</p>
                         </div>
                     </a>
+                    <p>This Simple Calculator can do the 4 main operators, & decimal values. It was a quick project that uses JavaScript for calculations.</p>
                 </div>
 
             </main>            
+        </div>
+
+        <div id="certificates">
+            <div class="text-center">
+                <h3>Certificates:</h3>
+            </div>
+            <p>This Section is For Certificates Awarded to me.</p>
+
+            <main>
+            <!--First Row of Web Development Projects-->
+                <!--1st Certification-->
+                <div class="image-container">
+                    <!--<a href="https://lemon-pie-recipe.vercel.app/" target="_blank">-->
+                        <img src="Images/AccentureCert.JPG" alt="AccentureCertImage">
+                        <div class="image-overlay">
+                            <p>Accenture Certificate</p>
+                        </div>
+                    </a>
+                </div>
+                <!--2nd Certification-->
+                <div class="image-container">
+                    <!--<a href="https://tmnt-rancid-tomatoes.vercel.app/" target="_blank">-->
+                        <img src="Images/GoldmanSachsCert.JPG" alt="TMNTImage">
+                        <div class="image-overlay">
+                            <p>GoldmanSachs Certificate</p>
+                        </div>
+                    <!--</a>-->
+                </div>
+                <!--3rd Certification-->
+                <div class="image-container">
+                    <!--<a href="https://vigenere-cipher-five.vercel.app/" target="_blank">-->
+                        <img src="Images/TataCert.JPG" alt="CipherImage">
+                        <div class="image-overlay">
+                            <p>Tata Certificate</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!--First Certificate-->
+            <div class="image-container">
+                <!--<a href="https://lemon-pie-recipe.vercel.app/" target="_blank">-->
+                    <img src="Images/UAForageCert.JPG" alt="UAForageCert">
+                    <div class="image-overlay">
+                        <p>UA Forage 15 Hour Cert</p>
+                    </div>
+                </a>
+                <p>This was a 15 Hour Certificate awarded to me by UA for completing the previous 3 Forage certificates.</p>
+            </div>
+            <!--Second Certificate-->
+            
+            
+
         </div>
     </div>
 
