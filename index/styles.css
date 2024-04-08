@@ -176,7 +176,7 @@ body {
   margin-bottom: 2em;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  justify-content: center;
 }
 .place-card-container {
   width: 300px;
