@@ -30,11 +30,12 @@ body {
   width: 100%;
   /*height: 600px;*/
   height: 50vw;
+  min-height: 600px;
   display: flex;
-  align-items: center;
   flex-direction: column;
   background-size: cover;
   background-image: url("Images/LandingPage.JPG");
+  object-fit: fill;
   background-position: 0% 40%;
 }
 .landing-Page-Navbar {
