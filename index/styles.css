@@ -41,6 +41,7 @@ body {
   background-position: 0% 40%;
   padding-bottom: 5%;
 }
+
 .landing-Page-Navbar {
   background-color: #4c759e;
   color: #FFFFFF;
@@ -275,7 +276,8 @@ header {
 
 .text-center {
   text-align: center;
-  margin: 20px 0;
+  margin: 0%;
+  flex: auto;
 }
 
 .container {
@@ -346,13 +348,20 @@ img {
 .footer {
   background-color: #4c759e;
   color: #ffffff;
-  padding: 20px 0;
+  padding-left: 5%;
+  padding-right: 5%;
+  width: 95vw;
+  height: 25vh;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 0%;
 }
 
 #icons a {
   color: #ffffff;
   margin: 0 10px;
-  font-size: 20px;
+  font-size: xx-large;
+  flex-wrap: wrap;
 }
 
 #icons a:hover {
