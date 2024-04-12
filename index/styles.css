@@ -27,6 +27,7 @@ body {
   background-image: url("Images/SpaceBackground.jpg");
   object-fit: fill;
   background-size: contain;
+  overflow: hidden; /*Hides Scrollbar*/
 }
 .landing-Page-Top-Container {
   width: 100vw;
@@ -37,6 +38,7 @@ body {
   background-size: cover;
   background-image: url("Images/LandingPage.JPG");
   background-repeat: no-repeat;
+  background-size: 100vw;
   object-fit: contain;
   background-position: 0% 40%;
   padding-bottom: 5%;
@@ -280,17 +282,6 @@ header {
   flex: auto;
 }
 
-.container {
-  margin: 10px auto;
-  max-width: 1200px; 
-}
-
-.container-xl {
-  background-color: white;
-  padding-top: 1%;
-  padding-bottom: 1%;
-}
-
 main {
   display: flex;
   justify-content: space-around;
@@ -301,18 +292,6 @@ main {
 }
 
 /*
-.projects {
-  background-color: #e41010;
-}*/
-
-.image-container {
-  position: relative;
-  overflow: hidden;
-  width: 30%; /* Set the width to 30% to limit to 3 images per row */
-  margin-bottom: 20px; /* Add margin between rows */
-  background-color: aliceblue;
-}
-
 .image-overlay {
   position: absolute;
   top: 0;
@@ -326,7 +305,7 @@ main {
   align-items: center;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
-}
+}*/
 /*
 .image-container:hover .image-overlay {
   opacity: 1;
@@ -338,8 +317,7 @@ main {
   font-size: 18px;
 }*/
 
-/*Sets image dimensions*/
-img {
+.place-card-container img {
   width:  300px;
   height: 250px;
   object-fit: fill;
@@ -368,6 +346,51 @@ img {
   color: #2d3236;
 }
 
+.container {
+  padding: 2rem;
+  overflow: hidden;
+}
 
+.slider-wrapper {
+  position: relative;
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.slider {
+  display: flex;
+  aspect-ratio: 16/9;
+  /*overflow-x: auto;*/
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+.slider img {
+  flex: 1 0 100%;
+  scroll-snap-align: start;
+  object-fit: cover;
+}
+.slider-nav {
+  display: flex;
+  column-gap: 1rem;
+  position: absolute;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+.slider-nav a {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: #fff;
+  opacity: 0.75;
+  transition: opacity ease 250ms;
+}
+.slider-nav a:hover {
+  opacity: 1;
+}
 
 
