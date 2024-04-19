@@ -25,3 +25,4 @@ history.go(-1);
 
 //Removing duplicates from an array
 const removeDuplicates = (arr) => [...new Set(arr)];
+
