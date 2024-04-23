@@ -1,3 +1,4 @@
 # APCV498_FINAL
 
-TO DO
+This is my Final project for APCV 498 Senior Capstone
+It acts as a Professional Portfolio
